@@ -57,7 +57,13 @@ mvn release:prepare
 * release.properties 用于后续的操作
 
 ### 发布
-执行
+* 发布前要检查，如果在插件中配置了 pushChanges 为false
+* 那么prepare的时候不会自动push任何代码，只是commit到了本地
+* 然而perform做的事情就是拉代码和deploy
+* 所以需要手动push代码和tag
+* (git push origin --tags/git push origin \<tagName>)
+* (在idea中在push的时候选择左下角的 ALL TAG 即可)
+* 执行
 ```shell
 mvn release:perform
 ```
