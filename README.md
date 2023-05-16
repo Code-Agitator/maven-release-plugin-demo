@@ -52,7 +52,7 @@ mvn release:prepare
 
 * 检查是否存在为commit的代码
 * 检查是否存在SNAPSHOT的依赖
-* 修改POM的project.version 成为一个不带SNAPSHOT的release版本(默认有三种version生成策略)
+* 修改POM的project.version 成为一个不带SNAPSHOT的release版本(默认有三种version生成策略\[see 其他])
 * 修改SCM中对应的TAG
 * 运行单元测试
 * 提交被修改的pom
@@ -92,25 +92,6 @@ mvn release:perform
 * 一个 **1.0.0-SNAPSHOT** 发布到仓库并且打一个tag为 **1.0.0**
 * 修改version为 **1.0.1-SNAPSHOT** 并将 **1.0.0** deploy到私有仓库的过程就完成了
 
-### 其他
-
-* 在perform过程中如果只是想提交代码到git而不想deploy可以有两种方式
-
-#### 直接吧 pom.xml.releaseBackup release.properties 清除
-
-```shell
-mvn release:clean
-```
-
-#### 或者使用不deploy的perform
-
-```shell
-# goals 就是这个命令完成的目标  默认为 deploy / site-deploy 为空就是啥也不干
-mvn release:perform -Dgoals=""
-```
-
-* 由此可见 从版本更新到发布的过程中是需要和 **maven-deploy-plugin** 配合使用
-
 ### 大版本更新的方式
 
 1. 手动修改
@@ -122,5 +103,32 @@ mvn release:perform -Dgoals=""
    ```
 
 * **区别：在多模块的项目中，mvn versions:set 可以处理包括依赖该模块的其他模块中版本号变化**
+
+## 其他
+
+### 提交代码到git而不想deploy
+
+* 在perform过程中如果只是想提交代码到git而不想deploy可以有两种方式
+
+1. 直接吧 pom.xml.releaseBackup release.properties 清除
+   ```shell
+   mvn release:clean
+   ```
+
+2. 或者使用不deploy的perform
+   ```shell
+   # goals 就是这个命令完成的目标  默认为 deploy / site-deploy 为空就是啥也不干
+   mvn release:perform -Dgoals=""
+   ```
+
+* 由此可见 从版本更新到发布的过程中是需要和 **maven-deploy-plugin** 配合使用
+
+### 版本号生成策略
+
+1. default: 去掉SNAPSHOT作为release版本，递增一个版本号作为新的SNAPSHOT版本
+2. OddEvenVersionPolicy: 将偶数版本作为release，奇数作为开发版
+3. SemVerVersionPolicy: 语义化版本号：主版本号.次版本号.修订号 => breaking change.new feature.bug fix......
+
+
 
 
