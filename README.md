@@ -1,11 +1,16 @@
 # maven-release-plugin
 
+### 我是什么？
+
 一个用于发布项目的maven插件，用于节省大量重复，枯燥的工作。发布一个项目只需要两步：
 
 * 准备(prepare)
 * 发布(perform)
 
-核心配置
+### 我和git什么关系
+
+git是一个版本控制(version controller)，关注的事代码版本控制。maven-release-plugin是一个版本管理(version management)
+，关注于项目版本的管理。该插件的意义正如官网所说：减少枯燥的重复工作，提供了版本管理的默认实现以及很多的个性化配置
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -40,7 +45,9 @@
 </project>
 ```
 
-## 假设当前版本为： **1.0.0-SNAPSHOT**
+# 开干
+
+### 假设当前版本为： **1.0.0-SNAPSHOT**
 
 执行
 
