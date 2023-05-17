@@ -4,7 +4,7 @@
 
     <groupId>pres.llz</groupId>
     <artifactId>maven-release-plugin-demo</artifactId>
-    <version>3.0.3-SNAPSHOT</version>
+    <version>3.0.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -34,6 +34,6 @@
         <developerConnection>scm:git:https://github.com/Code-Agitator/maven-release-plugin-demo.git
         </developerConnection>
         <url>https://github.com/Code-Agitator/maven-release-plugin-demo</url>
-        <tag>my-branch-2</tag>
+        <tag>my-branch</tag>
     </scm>
 </project>
