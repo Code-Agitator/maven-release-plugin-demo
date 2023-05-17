@@ -34,6 +34,6 @@
         <developerConnection>scm:git:https://github.com/Code-Agitator/maven-release-plugin-demo.git
         </developerConnection>
         <url>https://github.com/Code-Agitator/maven-release-plugin-demo</url>
-        <tag>HEAD</tag>
+        <tag>my-branch</tag>
     </scm>
 </project>
