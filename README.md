@@ -12,6 +12,8 @@
 git是一个版本控制(version controller)，关注的事代码版本控制。maven-release-plugin是一个版本管理(version management)
 ，关注于项目版本的管理。该插件的意义正如官网所说：减少枯燥的重复工作，提供了版本管理的默认实现以及很多的个性化配置
 
+### 基础配置
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
@@ -46,6 +48,8 @@ git是一个版本控制(version controller)，关注的事代码版本控制。
 ```
 
 # 开干
+
+## 基本用法
 
 ### 假设当前版本为： **1.0.0-SNAPSHOT**
 
@@ -111,7 +115,18 @@ mvn release:perform
 
 * **区别：在多模块的项目中，mvn versions:set 可以处理包括依赖该模块的其他模块中版本号变化**
 
+## 分支管理
+### 迭代一个version,并新建分支
+```shell
+mvn release:branch -DbranchName=new-branch
+```
+### 此时
+以当前分支为基准新建了一个分支 new-branch ,然后修改当前分支的version迭代一个版本并commit到当前分支
+### 新建分支但不更新当前分支version,而是更新新分支version
+```shell
+mvn release:branch -DbranchName=new-branch -DupdateBranchVersions=true -DupdateWorkingCopyVersions=false
 
+```
 
 ## 其他
 
