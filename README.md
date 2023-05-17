@@ -111,6 +111,8 @@ mvn release:perform
 
 * **区别：在多模块的项目中，mvn versions:set 可以处理包括依赖该模块的其他模块中版本号变化**
 
+
+
 ## 其他
 
 ### 提交代码到git而不想deploy
@@ -135,6 +137,9 @@ mvn release:perform
 1. default: 去掉SNAPSHOT作为release版本，递增一个版本号作为新的SNAPSHOT版本
 2. OddEvenVersionPolicy: 将偶数版本作为release，奇数作为开发版
 3. SemVerVersionPolicy: 语义化版本号：主版本号.次版本号.修订号 => breaking change.new feature.bug fix......
+
+
+
 
 
 
