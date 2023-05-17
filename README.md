@@ -106,7 +106,7 @@ mvn release:perform
 2. 使用 mvn versions:set
     * 执行
    ```shell
-   mvn versions:set -DnewVersion=1.2.0-SNAPSHOT 
+   mvn release:update-versions -DdevelopmentVersion="3.0.0-SNAPSHOT"
    ```
 
 * **区别：在多模块的项目中，mvn versions:set 可以处理包括依赖该模块的其他模块中版本号变化**
